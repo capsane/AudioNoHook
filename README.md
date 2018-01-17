@@ -15,3 +15,6 @@ java.lang.UnsatisfiedLinkError: Native method not found
 5、只是在调用native method时找不到函数，当然不是参数为空的问题。
 
 按照http://blog.csdn.net/fireness/article/details/50717280的做法
+
+
+只能是Android.mk的问题了。。。。
