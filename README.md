@@ -3,4 +3,12 @@
 
 
 java.lang.UnsatisfiedLinkError: Native method not found 
-生产的so库不是空的；loadLibrary()函数确实执行了；只是在调用native method时找不到函数，当然不是参数为空的问题。
+1、生成的so库不是空的；
+
+2、loadLibrary()函数确实执行了；
+
+3、本身就是c文件，不存在extern "C"的问题；
+
+4、函数名称的问题？
+
+5、只是在调用native method时找不到函数，当然不是参数为空的问题。
