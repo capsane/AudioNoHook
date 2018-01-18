@@ -5,8 +5,8 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES:= \
     Addjni.c
 
-# LOCAL_C_INCLUDES += \
-#     $(JNI_H_INCLUDE) \
+LOCAL_C_INCLUDES += \
+    $(JNI_H_INCLUDE) \
 
 # LOCAL_SHARED_LIBRARIES := \
 #     libandroid_runtime \

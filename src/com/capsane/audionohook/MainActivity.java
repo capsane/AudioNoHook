@@ -10,8 +10,13 @@ public class MainActivity extends Activity {
 
     // Used to load the 'native-lib' library on application startup.
     static {
-        System.loadLibrary("myjni");
-        Log.e("loadLibrary", "load myjni is done");
+        try {
+            System.loadLibrary("myjni");
+            Log.e("loadLibrary", "myjni is loaded");
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e("Exception", "myjni not loaded!!!!!");
+        }
     }
 
     @Override
@@ -21,20 +26,23 @@ public class MainActivity extends Activity {
 
         // Example of a call to a native method
         TextView tv = (TextView) this.findViewById(R.id.sample_text);
-        int add1 = 1;
-        int add2 = 2;
+        int add1 = 1000;
+        int add2 = 2000;
         Log.e("to do native add", "...");
 
         // 为什么找不到这个native方法呢
-        // int sum = add(add1, add2);
-        int sum = 666666;
+        int sum = add(add1, add2);
+        // int sum = Native.add(add1, add2);
+        // int sum = 666666;
         tv.setText("sum = " + sum);
-	    Log.e("123", "onCreate" + sum);
+	    Log.e("1231", "onCreate" + sum);
     }
 
     /**
      * A native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application.
      */
-    public native int add(int num1, int num2);
+    // public native int add(int num1, int num2);    
+    public static native int add(int num1, int num2);
+
 }
